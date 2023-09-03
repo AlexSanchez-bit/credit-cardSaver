@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "tarjeta-de-credito-27573": {
+      "hosting": {
+        "tarjetaCredito": [
+          "tarjeta-de-credito-27573"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "tarjeta-de-credito-27573"
+  }
+}

@@ -1,0 +1,55 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="titulo">{{title | uppercase}}
+      <div *ngIf="loading" class="spinner-border float-end" role="status">
+      </div>
+    </h5>
+
+    <form [formGroup]="form" (ngSubmit)="crearTarjeta()">
+
+      <div class="mb-3 input-group input-group-lg">
+        <span class="input-group-text">
+          <i class="fas fa-user-circle" [class.green-icon]="this.form.get('titular')?.valid"></i>
+        </span>
+        <input type="text" formControlName="titular" class="form-control" placeholder="titular">
+      </div>
+      <div class="mb-3 input-group input-group-lg">
+        <span class="input-group-text">
+          <i class="fas fa-credit-card"
+            [class.red-icon]="form.get('numerotarjeta')?.touched && this.form.get('numerotarjeta')?.invalid"
+            [class.green-icon]="this.form.get('numerotarjeta')?.valid"></i>
+        </span>
+        <input type="text" formControlName="numerotarjeta" class="form-control" maxlength="16"
+          placeholder="numero de la tarjeta">
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="mb-3 input-group input-group-lg">
+            <span class="input-group-text">
+              <i class="fas fa-calendar-alt"
+                [class.red-icon]="form.get('fechaExpiracion')?.touched && this.form.get('fechaExpiracion')?.invalid"
+                [class.green-icon]="this.form.get('fechaExpiracion')?.valid"></i>
+            </span>
+            <input type="text" formControlName="fechaExpiracion" maxlength="5" class="form-control" placeholder="MM/YY">
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="mb-3 input-group input-group-lg">
+            <span class="input-group-text">
+              <i class="fas fa-key" [class.red-icon]="form.get('cvv')?.touched && this.form.get('cvv')?.invalid"
+                [class.green-icon]="this.form.get('cvv')?.valid"></i>
+            </span>
+            <input type="password" formControlName="cvv" maxlength="3" class="form-control" placeholder="CVV">
+          </div>
+        </div>
+      </div>
+
+      <div class="gap-2 d-gird">
+        <button class="btn btn-success btn-lg" type="submit" [disabled]="form.invalid">
+          <i class="fas fa-database"></i>
+          Aceptar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

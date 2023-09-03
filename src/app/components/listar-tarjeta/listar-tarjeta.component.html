@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="titulo">
+      Listar Tarjetas
+      <div *ngIf="loading" class="spinner-border float-end" role="status">
+      </div>
+    </h5>
+    <table class="table">
+      <tbody>
+        <tr *ngFor="let credCard of tarjetas;">
+          <td>{{credCard.tarjeta.titular}}</td>
+          <td>{{credCard.tarjeta.num_tarjeta}}</td>
+          <td>{{credCard.tarjeta.fechaExpiracion}}</td>
+          <i class="fas fa-edit text-info modify" (click)="editarTarjeta(credCard.tarjeta)"></i>
+          <i class="fas fa-trash text-danger modify" (click)="eliminarTarjeta(credCard.id)"></i>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
